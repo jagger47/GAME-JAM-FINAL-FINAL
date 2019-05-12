@@ -9,11 +9,16 @@ public class PlayerMovement : MonoBehaviour
     public float carSpeed = 1000000;
     private float time = 180f;
     private int indx;
+    private int direction = 0;
+    private bool walking = false;
+
+    private Animator animator;
 
     void Start()
     {
         indx = 0;
         transform.position = v[indx];
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,19 +50,35 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("left"))
         {
             transform.position -= new Vector3(carSpeed * Time.deltaTime, 0, 0);
+            direction = 2;
+            walking = true;
+
         }
         else if (Input.GetKey("right"))
         {
             transform.position += new Vector3(carSpeed * Time.deltaTime, 0, 0);
+            direction = 1;
+            walking = true;
         }
         else if (Input.GetKey("up"))
         {
             transform.position += new Vector3(0, carSpeed * Time.deltaTime, 0);
+            direction = 0;
+            walking = true;
         }
         else if (Input.GetKey("down"))
         {
             transform.position -= new Vector3(0, carSpeed * Time.deltaTime, 0);
+            direction = 3;
+            walking = true;
         }
+        else
+        {
+            walking = false;
+        }
+
+        animator.SetInteger("direction", direction);
+        animator.SetBool("walking", walking);
     }
 
     void OnCollisionEnter2D(Collision2D col)
