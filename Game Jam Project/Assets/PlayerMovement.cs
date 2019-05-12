@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             transform.position = v[indx];
-            time = 180f;
+            time = 180;
         }
     }
 

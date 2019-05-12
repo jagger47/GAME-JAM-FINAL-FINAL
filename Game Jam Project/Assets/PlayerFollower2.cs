@@ -6,7 +6,7 @@ public class PlayerFollower2 : MonoBehaviour
 {
     public Vector3 offset;
     public Transform Target;
-    public float DeltaTime = 0;
+    public float DeltaTime;
 
     void LateUpdate()
     {
