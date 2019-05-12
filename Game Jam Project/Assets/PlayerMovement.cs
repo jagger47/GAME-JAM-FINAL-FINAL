@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        indx = 0;
-        transform.position = v[indx];
+        //indx = 0;
+        //transform.position = v[indx];
         animator = GetComponent<Animator>();
     }
 

@@ -41,7 +41,7 @@ public class CountdownTimer : MonoBehaviour
         if (timerText != null)
         {
             time = 180f;
-            timerText.text = "Time Left: 00:10";
+            timerText.text = "Time Left: 03:00";
         }
     }
 }
